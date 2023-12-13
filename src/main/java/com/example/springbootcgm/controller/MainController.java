@@ -59,21 +59,18 @@ public class MainController {
 
     @PostMapping("/v5/cars")
     public List<Car> createCar(@RequestBody  Car newCar){
-        List<Car> carList = new ArrayList<>(); // Create a new list
-        carList.addAll(listAuto);
 
-        carList.add(newCar);
+        listAuto.add(newCar);
 
-        return carList;
+        return listAuto;
     }
 
 
     @DeleteMapping("/v1/deleteLast")
     public  List<Car> removeCar(){
-        List<Car> carList = new ArrayList<>(); // Create a new list
-        carList.addAll(listAuto);
-        carList.remove(carList.size() -1);
-        return carList;
+
+        listAuto.remove(listAuto.size() -1);
+        return listAuto;
     }
 
 }

@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 @SpringBootApplication
@@ -16,16 +17,16 @@ public class FirstSpringApp {
 
 
     @Bean(name = "listAuto")
-    public List<Car> listAuto() {
+    public List<Car> createList() {
         // Create and return a list of cars
-        return Arrays.asList(
-        new Car("BMW", "M3", "Blue"),
-        new Car("TOYOTA", "RAV4", "White"),
-        new Car("FIAT", "500", "Pink"),
-        new Car("MERCEDES", "GL400", "Grey"),
-        new Car("MAZDA", "M5", "Orange"),
-        new Car("PEUGEOT", "5008", "Green")
-        );
+        return new LinkedList<>(Arrays.asList(
+                new Car("BMW", "M3", "Blue"),
+                new Car("TOYOTA", "RAV4", "White"),
+                new Car("FIAT", "500", "Pink"),
+                new Car("MERCEDES", "GL400", "Grey"),
+                new Car("MAZDA", "M5", "Orange"),
+                new Car("PEUGEOT", "5008", "Green")
+        ));
     }
 
 
