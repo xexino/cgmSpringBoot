@@ -22,7 +22,7 @@ public class MainController {
 
 
 
-    @RequestMapping(value = "/v1/cars", method = RequestMethod.PATCH)
+    @PatchMapping(value = "/v1/cars")
     public List<Car> partialUpdateCar(@RequestParam String model){
 
 //        Nella lista cars modificare il model del terzo elemento
@@ -30,9 +30,8 @@ public class MainController {
         return listAuto;
     }
 
-    @RequestMapping(value = "/v2/cars", method = RequestMethod.PATCH)
+    @PatchMapping(value = "/v2/cars")
     public List<Car> updateTheEntireThirdElement(@RequestParam  String brand ,String model ,String color){
-        //   TODO replace the third element
 
         listAuto.get(2).setBrand(brand);
         listAuto.get(2).setModel(model);
@@ -72,7 +71,6 @@ public class MainController {
     @DeleteMapping("/v1/deleteLast")
     public  List<Car> removeCar(){
         List<Car> carList = new ArrayList<>(); // Create a new list
-//        TODO remove the last element
         carList.addAll(listAuto);
         carList.remove(carList.size() -1);
         return carList;
